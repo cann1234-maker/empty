@@ -18,7 +18,7 @@
         document.getElementById('proxy-form').addEventListener('submit', function(event) {
             event.preventDefault();
             const url = document.getElementById('url').value;
-            document.getElementById('proxy-frame').src = '/proxy/' + encodeURIComponent(url);
+            document.getElementById('proxy-frame').src = '/' + encodeURIComponent(url);
         });
     </script>
 </body>
