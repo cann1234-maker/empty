@@ -5,7 +5,10 @@ app = FastAPI()
 
 @app.get("/{path:path}")
 async def proxy(request: Request, path: str):
-    url = f"http://{path}"
+    if not path.startswith("http://") and not path.startswith("https://"):
+        url = f"http://{path}"
+    else:
+        url = path
 
     try:
         async with httpx.AsyncClient() as client:
